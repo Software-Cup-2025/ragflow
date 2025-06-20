@@ -176,10 +176,16 @@ def add_llm():
         llm_name += "___VLLM"
 
     elif factory == "XunFei Spark":
+        req["model_type"] = "chat"
+        req["spark_api_password"] = "qxsIwAjmJUxsYgYyhosF:cSVytNxvaGoYbyFGyBfi" 
+        req["max_tokens"] = 100
+        llm_name = "Spark-X1"
+        
         if req["model_type"] == "chat":
             api_key = req.get("spark_api_password", "")
         elif req["model_type"] == "tts":
             api_key = apikey_json(["spark_app_id", "spark_api_secret", "spark_api_key"])
+        # api_key = 'qxsIwAjmJUxsYgYyhosF:cSVytNxvaGoYbyFGyBfi'
 
     elif factory == "BaiduYiyan":
         api_key = apikey_json(["yiyan_ak", "yiyan_sk"])
